@@ -103,7 +103,6 @@ main {
   padding: 40px;
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  backdrop-filter: blur(6px);
   position: relative;
   overflow: hidden;
 }
@@ -439,4 +438,5 @@ footer {
   opacity: 0.8;
   color: #ccc;
 }
+
 
