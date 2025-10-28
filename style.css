@@ -105,6 +105,7 @@ main {
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
 
 .hero h1 {
@@ -229,6 +230,7 @@ main {
   background: linear-gradient(180deg, var(--glass), var(--glass-2));
   border: 1px solid rgba(255,255,255,0.03);
   margin-top: 40px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
 
 /* Status Grid */
@@ -438,5 +440,6 @@ footer {
   opacity: 0.8;
   color: #ccc;
 }
+
 
 
