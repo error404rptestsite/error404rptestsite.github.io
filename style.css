@@ -408,3 +408,35 @@ footer {
 }
 
 
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.logo-img {
+  width: 150px; /* ή ό,τι μέγεθος θες (π.χ. 100px, 150px κτλ.) */
+  margin-top: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
+  animation: logo-glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow {
+  from {
+    filter: drop-shadow(0 0 5px #ff0000);
+  }
+  to {
+    filter: drop-shadow(0 0 25px #ff0000);
+  }
+}
+
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  color: #ccc;
+}
