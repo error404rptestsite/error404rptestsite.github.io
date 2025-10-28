@@ -19,7 +19,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: var(--sans);
-  background: url('error_404_red.png') no-repeat center center fixed;
+  background: url('Error_Roleplay_Red_Banner.png') no-repeat center center fixed;
   background-size: cover; /* γεμίζει όλη την οθόνη */
   color: #eaeaea;
   -webkit-font-smoothing: antialiased;
@@ -406,4 +406,5 @@ footer {
   90% { transform: scale(0.9) skew(0deg,0deg); }
   100% { opacity: 1; transform: scale(2) skew(0deg,0deg); } /* Zoom out before reveal */
 }
+
 
