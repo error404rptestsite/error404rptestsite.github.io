@@ -443,3 +443,15 @@ footer {
 
 
 
+
+.credit-link {
+  color: #ff2233;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.credit-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff2233;
+}
