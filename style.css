@@ -16,7 +16,7 @@
 }
 
 html, body {
-  height: 10%;
+  height: 100%;
   margin: 0;
   font-family: var(--sans);
   background: url('Error_Roleplay_Red_Banner.png') no-repeat center center fixed;
@@ -503,4 +503,5 @@ footer {
   animation: neon 3.2s ease-in-out infinite;
   transform: scale(1.05);
 }
+
 
