@@ -473,8 +473,9 @@ footer {
 }
 
 .tiktok-buttons-card h3 {
+  margin-top: 5px;
   font-size: 24px;
-  margin-bottom: 12px;
+  margin-bottom: -23px;
   color: #ffffff;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
@@ -483,7 +484,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 45px;
 }
 
 .tiktok-buttons .btn {
@@ -502,4 +503,3 @@ footer {
   animation: neon 3.2s ease-in-out infinite;
   transform: scale(1.05);
 }
-
