@@ -473,7 +473,7 @@ footer {
 }
 
 .tiktok-buttons-card h3 {
-  margin-top: 5px;
+  margin-top: -5px;
   font-size: 24px;
   margin-bottom: -23px;
   color: #ffffff;
@@ -484,7 +484,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 45px;
+  margin-top: 35px;
 }
 
 .tiktok-buttons .btn {
