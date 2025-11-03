@@ -423,7 +423,6 @@ footer {
   margin-top: 25px;
   height: auto;
   filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
-  animation: logo-glow 2.5s ease-in-out infinite alternate;
 }
 
 @keyframes logo-glow {
@@ -503,5 +502,6 @@ footer {
   animation: neon 3.2s ease-in-out infinite;
   transform: scale(1.05);
 }
+
 
 
