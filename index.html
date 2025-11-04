@@ -13,14 +13,13 @@
   <link rel="canonical" href="https://error404roleplay.gr/">
 
 
-  <meta name="description" content="Ελληνικός GTA RP Server Με Balanced Economy, Events Και Full Enjoyable Gameplay.">
+  <meta name="description" content="Ελληνικός GTA RP Server Με Balanced Economy, Events Και Full Enjoyable Gameplay. Μπες στο Discord μας!">
 
- <meta property="og:title" content="Error 404 Roleplay">
- <meta property="og:description" content="Ελληνικός GTA RP Server με Balanced Economy, Events και Full Enjoyable Gameplay.">
- <meta property="og:image" content="https://error404roleplay.gr/error404desc.png">
- <meta property="og:url" content="https://error404roleplay.gr/">
- <meta property="og:type" content="website">
-
+  <meta property="og:title" content="Error 404 Roleplay">
+  <meta property="og:description" content="Ελληνικός GTA RP Server Με Balanced Economy, Events Και Full Enjoyable Gameplay. Μπες στο Discord μας!">
+  <meta property="og:image" content="https://error404roleplay.gr/error_404_red_transparent.png">
+  <meta property="og:url" content="https://error404roleplay.gr/">
+  <meta property="og:type" content="website">
 
 
 </head>
@@ -29,6 +28,25 @@
   <div class="intro-overlay">
   <div class="intro-glitch" data-text="ERROR 404">ERROR 404</div>
 </div>
+
+<!-- Coming Soon Overlay -->
+<div class="coming-overlay" id="comingOverlay" aria-hidden="false">
+  <div class="coming-content">
+    <h1>COMING SOON</h1>
+    <p>Η σελίδα ετοιμάζεται. Ανυπομονούμε όσο και εσείς! → <a href="https://discord.gg/error404roleplay" target="_blank" rel="noopener noreferrer">discord.gg/error404roleplay</a>
+</p>
+
+  </div>
+
+  <button class="owner-link" id="ownerLink" type="button">Are you the website owner?</button>
+
+  <form class="owner-form" id="ownerForm" autocomplete="off">
+    <input type="password" id="ownerCode" placeholder="Enter access code">
+    <button type="submit">Enter</button>
+    <div class="form-msg" id="formMsg"></div>
+  </form>
+</div>
+
 
   <div class="scanlines" aria-hidden="true"></div>
 
@@ -234,8 +252,8 @@
   <footer>
     <div>© <strong>Error 404 Roleplay</strong> — Made with ❤️ by  <a href="https://codingelevation.com" target="_blank" rel="noopener noreferrer" class="credit-link"> Coding Elevation.</a></div>
     <div class="socials">
-  <a href="https://discord.gg/example" target="_blank"><i class="fab fa-discord"></i></a>
-  <a href="https://www.tiktok.com/@example" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://discord.gg/error404roleplay" target="_blank"><i class="fab fa-discord"></i></a>
+  <a href="https://www.tiktok.com/@error404roleplay" target="_blank"><i class="fab fa-tiktok"></i></a>
   <a href="https://www.instagram.com/example" target="_blank"><i class="fab fa-instagram"></i></a>
 </div>
 </footer>
@@ -253,11 +271,48 @@
   </script>
 
 
+<script>
+window.addEventListener('load', () => {
+  const intro = document.querySelector('.intro-overlay');      // το υπάρχον glitch overlay σου
+  const coming = document.getElementById('comingOverlay');
+  const ownerLink = document.getElementById('ownerLink');
+  const ownerForm = document.getElementById('ownerForm');
+  const ownerCode = document.getElementById('ownerCode');
+  const formMsg = document.getElementById('formMsg');
+
+  // Μετά το intro, δείξε το "COMING SOON" αντί να εμφανίσει αμέσως το site
+  setTimeout(() => {
+    if (intro) { intro.style.transition='opacity .6s'; intro.style.opacity='0'; setTimeout(() => intro.remove(), 600); }
+    coming.classList.add('show');
+  }, 1500); // ΔΙΑΡΚΕΙΑ INTRO (προσαρμόζεις)
+
+  // Εμφάνιση/κρύψιμο φόρμας ιδιοκτήτη
+  ownerLink.addEventListener('click', () => {
+    ownerForm.classList.toggle('show');
+    formMsg.textContent = '';
+    if (ownerForm.classList.contains('show')) ownerCode.focus();
+  });
+
+  // Έλεγχος κωδικού
+  ownerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const ok = ownerCode.value.trim().toLowerCase() === 'error404';
+    if (ok) {
+      formMsg.style.color = '#50fa7b';
+      formMsg.textContent = 'Access granted';
+      coming.classList.remove('show');           // κρύψε το overlay
+      setTimeout(() => coming.remove(), 500);    // και αποκάλυψε το site
+    } else {
+      formMsg.style.color = '#ff6b6b';
+      formMsg.textContent = 'Wrong code';
+      ownerForm.classList.add('shake');
+      setTimeout(() => ownerForm.classList.remove('shake'), 350);
+    }
+  });
+});
+</script>
+
+
+
 </body>
 </html>
-
-
-
-
-
-
