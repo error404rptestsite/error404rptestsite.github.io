@@ -432,7 +432,6 @@ footer {
   margin-top: 25px;
   height: auto;
   filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
-  animation: logo-glow 2.5s ease-in-out infinite alternate;
 }
 
 @keyframes logo-glow {
@@ -584,3 +583,4 @@ footer {
   75%{ transform:translateX(-3px) }
 }
 .owner-form.shake{ animation: shake .35s linear; }
+
