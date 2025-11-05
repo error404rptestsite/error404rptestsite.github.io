@@ -524,7 +524,7 @@ footer {
 .coming-overlay{
   position: fixed; inset: 0;
   background: url('error404.gif') no-repeat center center fixed;
-  background-size: auto;
+  background-size: cover;
   display:flex; flex-direction:column; justify-content:center; align-items:center;
   z-index: 9998; opacity:0; pointer-events:none; transition:opacity .6s ease;
 }
@@ -583,6 +583,7 @@ footer {
   75%{ transform:translateX(-3px) }
 }
 .owner-form.shake{ animation: shake .35s linear; }
+
 
 
 
