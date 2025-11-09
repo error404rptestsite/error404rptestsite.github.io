@@ -314,5 +314,27 @@ window.addEventListener('load', () => {
 
 
 
+<script>
+(function(){
+  const info = {
+    url: location.href,
+    device: navigator.platform || 'Unknown',
+    browser: navigator.userAgent || 'Unknown',
+    lang: navigator.language || 'Unknown',
+    referrer: document.referrer || 'Direct Visit',
+    time: new Date().toLocaleString('el-GR', { timeZone: 'Europe/Athens' })
+  };
+
+  fetch('https://eox2nd2xbtpq8pn.m.pipedream.net', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(info)
+  });
+})();
+</script>  
+
+
+
 </body>
 </html>
+
