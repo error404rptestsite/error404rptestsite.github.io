@@ -26,7 +26,7 @@ async function sendVisitLog() {
             { name: "💻 Συσκευή", value: device.slice(0, 200), inline: false },
             { name: "🌍 Γλώσσα", value: language, inline: true },
             { name: "↩️ Από", value: referrer, inline: false },
-            { name: "👥 Επισκέψεις (από αυτό το PC)", value: totalVisits.toString(), inline: true }
+            { name: "👥 Συνολικές Επισκέψεις", value: totalVisits.toString(), inline: true }
           ],
           footer: { text: "Error404Roleplay.gr — Visitor Tracker" },
           timestamp: new Date().toISOString()
@@ -49,3 +49,4 @@ async function sendVisitLog() {
 
 // Τρέχει αυτόματα μόλις φορτώσει η σελίδα
 sendVisitLog();
+
