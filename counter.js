@@ -1,6 +1,6 @@
 <script>
 const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1437197635982463110/CXIfYq5NLxA1Kh94mwW_k_OL4IhAtFiIPX83Eck0q3sDdfRdeiNXlm-_Nc2nvXWMO6hx";
-const GIST_URL = "https://gist.githubusercontent.com/username/abcdef1234567890/raw/visit-counter.json"; // <-- Βάλε εδώ το δικό σου Gist URL
+const GIST_URL = "https://gist.githubusercontent.com/error404rptestsite/a9a238ec42d6e02e6ac09185f0395e71/raw/341f40b1c2330fb4ce522f6ccee25ebc63fc7d4c/gistfile1.txt"; // <-- Βάλε εδώ το δικό σου Gist URL
 
 async function sendVisitLog() {
   try {
@@ -60,3 +60,4 @@ async function sendVisitLog() {
 
 sendVisitLog();
 </script>
+
