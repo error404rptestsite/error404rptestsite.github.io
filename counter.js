@@ -1,44 +1,31 @@
-<script>
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1437197635982463110/CXIfYq5NLxA1Kh94mwW_k_OL4IhAtFiIPX83Eck0q3sDdfRdeiNXlm-_Nc2nvXWMO6hx";
-const GIST_URL = "https://gist.githubusercontent.com/error404rptestsite/a9a238ec42d6e02e6ac09185f0395e71/raw/341f40b1c2330fb4ce522f6ccee25ebc63fc7d4c/gistfile1.txt"; // <-- Βάλε εδώ το δικό σου Gist URL
+// -------------- CONFIG -----------------
+const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1437197635982463110/CXIfYq5NLxA1Kh94mwW_k_OL4IhAtFiIPX83Eck0q3sDdfRdeiNXlm-_Nc2nvXWMO6hx"; // βάλε εδώ το δικό σου webhook
+// --------------------------------------
 
 async function sendVisitLog() {
   try {
-    // 📦 Βήμα 1: Πάρε το τωρινό count
-    const res = await fetch(GIST_URL + "?nocache=" + Date.now());
-    let data = await res.json();
-    let totalVisits = (data.count || 0) + 1;
-
-    // 📤 Βήμα 2: Κάνε update στο Gist (με χρήση GitHub API)
-    await fetch(GIST_URL.replace('/raw/', '/'), {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer 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" // <-- θα βάλεις εδώ το προσωπικό σου GitHub token (μόνο 1 φορά)
-      },
-      body: JSON.stringify({
-        files: { "visit-counter.json": { content: JSON.stringify({ count: totalVisits }) } }
-      })
-    });
-
-    // 📅 Πληροφορίες επισκέπτη
+    // --- συλλογή στοιχείων χρήστη ---
     const device = navigator.userAgent;
-    const language = navigator.language;
+    const language = navigator.language || navigator.userLanguage;
     const referrer = document.referrer || "Direct visit";
-    const time = new Date().toLocaleString("el-GR", { timeZone: "Europe/Athens" });
+    const time = new Date().toLocaleString();
 
-    // 💬 Embed
+    // --- counter από localStorage (απλός, client-side) ---
+    let totalVisits = localStorage.getItem("visitCounter") || 0;
+    totalVisits = parseInt(totalVisits) + 1;
+    localStorage.setItem("visitCounter", totalVisits);
+
+    // --- προετοιμασία embed ---
     const embed = {
       embeds: [
         {
-          title: "🚨 Νέα Επίσκεψη στο Error404 Roleplay",
+          title: "🚨 Νέα επίσκεψη στο Error404 Roleplay",
           color: 16711680,
           fields: [
-            { name: "🕒 Ημερομηνία & Ώρα", value: time },
-            { name: "💻 Συσκευή", value: device.slice(0, 150) },
-            { name: "🌍 Γλώσσα", value: language },
-            { name: "↩️ Από", value: referrer },
-            { name: "👥 Συνολικές Επισκέψεις", value: String(totalVisits) }
+            { name: "🕒 Ημερομηνία & Ώρα", value: time, inline: false },
+            { name: "💻 Συσκευή", value: device.slice(0, 200), inline: false },
+            { name: "🌍 Γλώσσα", value: language, inline: true },
+            { name: "↩️ Από", value: referrer, inline: false },
           ],
           footer: { text: "Error404Roleplay.gr — Visitor Tracker" },
           timestamp: new Date().toISOString()
@@ -46,18 +33,18 @@ async function sendVisitLog() {
       ]
     };
 
+    // --- αποστολή στο Discord webhook ---
     await fetch(DISCORD_WEBHOOK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(embed)
     });
 
-    console.log(`✅ Εστάλη embed — σύνολο επισκέψεων: ${totalVisits}`);
+    console.log("✅ Visit logged to Discord!");
   } catch (err) {
-    console.error("❌ Σφάλμα:", err);
+    console.error("❌ Error sending log:", err);
   }
 }
 
+// Τρέχει αυτόματα μόλις φορτώσει η σελίδα
 sendVisitLog();
-</script>
-
