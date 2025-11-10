@@ -1,29 +1,41 @@
+<script>
 const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1437197635982463110/CXIfYq5NLxA1Kh94mwW_k_OL4IhAtFiIPX83Eck0q3sDdfRdeiNXlm-_Nc2nvXWMO6hx";
-const COUNTER_PROXY = "https://eooxxricods0l55.m.pipedream.net"; // <-- το URL σου από το Pipedream
+const GIST_URL = "https://gist.githubusercontent.com/username/abcdef1234567890/raw/visit-counter.json"; // <-- Βάλε εδώ το δικό σου Gist URL
 
 async function sendVisitLog() {
   try {
+    // 📦 Βήμα 1: Πάρε το τωρινό count
+    const res = await fetch(GIST_URL + "?nocache=" + Date.now());
+    let data = await res.json();
+    let totalVisits = (data.count || 0) + 1;
+
+    // 📤 Βήμα 2: Κάνε update στο Gist (με χρήση GitHub API)
+    await fetch(GIST_URL.replace('/raw/', '/'), {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer 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" // <-- θα βάλεις εδώ το προσωπικό σου GitHub token (μόνο 1 φορά)
+      },
+      body: JSON.stringify({
+        files: { "visit-counter.json": { content: JSON.stringify({ count: totalVisits }) } }
+      })
+    });
+
+    // 📅 Πληροφορίες επισκέπτη
     const device = navigator.userAgent;
     const language = navigator.language;
     const referrer = document.referrer || "Direct visit";
     const time = new Date().toLocaleString("el-GR", { timeZone: "Europe/Athens" });
 
-    // 🔁 Counter μέσω Proxy
-    const counterRes = await fetch(COUNTER_PROXY);
-    const counterData = await counterRes.json();
-    const totalVisits = counterData.count || "N/A";
-
-    console.log("📊 Visits count:", totalVisits);
-
-    // 📦 Embed
+    // 💬 Embed
     const embed = {
       embeds: [
         {
-          title: "🚨 Νέα επίσκεψη στο Error404 Roleplay",
+          title: "🚨 Νέα Επίσκεψη στο Error404 Roleplay",
           color: 16711680,
           fields: [
             { name: "🕒 Ημερομηνία & Ώρα", value: time },
-            { name: "💻 Συσκευή", value: device.slice(0, 180) },
+            { name: "💻 Συσκευή", value: device.slice(0, 150) },
             { name: "🌍 Γλώσσα", value: language },
             { name: "↩️ Από", value: referrer },
             { name: "👥 Συνολικές Επισκέψεις", value: String(totalVisits) }
@@ -34,19 +46,17 @@ async function sendVisitLog() {
       ]
     };
 
-    // 📡 Αποστολή embed στο Discord
-    const resp = await fetch(DISCORD_WEBHOOK, {
+    await fetch(DISCORD_WEBHOOK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(embed)
     });
 
-    if (resp.ok) console.log("✅ Embed sent!");
-    else console.error("❌ Discord error:", resp.statusText);
-
+    console.log(`✅ Εστάλη embed — σύνολο επισκέψεων: ${totalVisits}`);
   } catch (err) {
-    console.error("❌ Error:", err);
+    console.error("❌ Σφάλμα:", err);
   }
 }
 
 sendVisitLog();
+</script>
