@@ -1,5 +1,6 @@
 // -------------- CONFIG -----------------
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1437197635982463110/CXIfYq5NLxA1Kh94mwW_k_OL4IhAtFiIPX83Eck0q3sDdfRdeiNXlm-_Nc2nvXWMO6hx"; // βάλε εδώ το δικό σου webhook
+const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1437197635982463110/CXIfYq5NLxA1Kh94mwW_k_OL4IhAtFiIPX83Eck0q3sDdfRdeiNXlm-_Nc2nvXWMO6hx"; // ⚠️ Βάλε ΝΕΟ webhook
+const COUNTER_URL = "https://api.counterapi.dev/v1/error404roleplay/visits"; // μοναδικό όνομα counter
 // --------------------------------------
 
 async function sendVisitLog() {
@@ -10,10 +11,10 @@ async function sendVisitLog() {
     const referrer = document.referrer || "Direct visit";
     const time = new Date().toLocaleString();
 
-    // --- counter από localStorage (απλός, client-side) ---
-    let totalVisits = localStorage.getItem("visitCounter") || 0;
-    totalVisits = parseInt(totalVisits) + 1;
-    localStorage.setItem("visitCounter", totalVisits);
+    // --- πάρε και αύξησε τον global counter ---
+    const counterResponse = await fetch(`${COUNTER_URL}/up`, { method: "POST" });
+    const counterData = await counterResponse.json();
+    const totalVisits = counterData.value || "N/A";
 
     // --- προετοιμασία embed ---
     const embed = {
@@ -26,7 +27,7 @@ async function sendVisitLog() {
             { name: "💻 Συσκευή", value: device.slice(0, 200), inline: false },
             { name: "🌍 Γλώσσα", value: language, inline: true },
             { name: "↩️ Από", value: referrer, inline: false },
-            { name: "👥 Συνολικές Επισκέψεις", value: totalVisits.toString(), inline: true }
+            { name: "👥 Συνολικές Επισκέψεις (Global)", value: totalVisits.toString(), inline: true }
           ],
           footer: { text: "Error404Roleplay.gr — Visitor Tracker" },
           timestamp: new Date().toISOString()
@@ -41,12 +42,10 @@ async function sendVisitLog() {
       body: JSON.stringify(embed)
     });
 
-    console.log("✅ Visit logged to Discord!");
+    console.log(`✅ Visit logged to Discord! (Global count: ${totalVisits})`);
   } catch (err) {
     console.error("❌ Error sending log:", err);
   }
 }
 
-// Τρέχει αυτόματα μόλις φορτώσει η σελίδα
 sendVisitLog();
-
