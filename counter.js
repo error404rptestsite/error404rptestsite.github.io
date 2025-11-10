@@ -6,46 +6,41 @@ const API_KEY = "ut_wd8PBVQA8lJId93BN3E6rhKyemeWzf3YvG82xN3u";
 
 async function sendVisitLog() {
   try {
-    // 🧠 Έλεγχος για refresh (session-based)
+    // 🔄 Αν έχει ήδη σταλεί για αυτή τη συνεδρία, μην το ξαναστείλεις
     if (sessionStorage.getItem("visitLogged") === "true") {
       console.log("↩️ Refresh detected — δε στέλνεται νέο log.");
       return;
     }
     sessionStorage.setItem("visitLogged", "true");
 
-    // --- συλλογή στοιχείων χρήστη ---
+    // 📋 Πληροφορίες επισκέπτη
     const device = navigator.userAgent;
     const language = navigator.language || navigator.userLanguage;
     const referrer = document.referrer || "Direct visit";
     const time = new Date().toLocaleString("el-GR", { timeZone: "Europe/Athens" });
 
-    // --- αύξηση global counter (v2 API) ---
+    // 🔢 Αύξηση global counter
     let totalVisits = "N/A";
     try {
       const response = await fetch(`${COUNTER_URL}/up`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${API_KEY}`,
-          "accept": "application/json"
+          "Accept": "application/json"
         }
       });
 
+      // Πάρε raw text για debugging
       const text = await response.text();
       console.log("📦 Raw API Response:", text);
 
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        data = {};
-      }
-
-      totalVisits = data.count ?? data.value ?? data.total ?? "N/A";
+      const data = JSON.parse(text);
+      totalVisits = data.count || data.value || data.total || data.current || "N/A";
     } catch (err) {
       console.warn("⚠️ Counter API error:", err);
     }
 
-    // --- δημιουργία embed ---
+    // 📤 Δημιουργία embed
     const embed = {
       embeds: [
         {
@@ -64,7 +59,7 @@ async function sendVisitLog() {
       ]
     };
 
-    // --- αποστολή στο Discord ---
+    // 📡 Αποστολή στο Discord
     await fetch(DISCORD_WEBHOOK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
