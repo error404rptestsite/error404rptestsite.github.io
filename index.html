@@ -115,7 +115,7 @@
         </div>
         <div class="players">
           <small>Παίκτες τώρα :</small>
-          <div class="online" style="color: #ff2233">404 / 404</div>
+          <div class="online" id="player-count" style="color: #ff2233">404 / 404</div>
         </div>
       </div>
     </section>
@@ -317,8 +317,35 @@ window.addEventListener('load', () => {
 
 
 
+
+<script>
+async function updatePlayerCount() {
+  try {
+    const res = await fetch("https://servers-frontend.fivem.net/api/servers/single/r4kmyp");
+    const data = await res.json();
+
+    if (data && data.Data) {
+      const players = data.Data.players.length;
+      const maxPlayers = data.Data.sv_maxclients;
+      document.getElementById("player-count").textContent = `${players} / ${maxPlayers}`;
+    } else {
+      document.getElementById("player-count").textContent = "N/A";
+    }
+  } catch (err) {
+    document.getElementById("player-count").textContent = "Offline";
+  }
+}
+
+updatePlayerCount();
+setInterval(updatePlayerCount, 30000);
+</script>
+
+  
+
+
 </body>
 </html>
+
 
 
 
