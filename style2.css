@@ -1,0 +1,343 @@
+:root {
+  --bg: #0b0b0b;
+  --red: #ff2233;
+  --dark-red: #8a0f12;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-2: rgba(255, 255, 255, 0.02);
+  --accent: linear-gradient(90deg, var(--red), #ff4d4d);
+  --mono: 'Orbitron', sans-serif;
+  --sans: 'Inter', sans-serif;
+}
+
+
+/* ===== HEADER (transparent version) ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+
+  background: transparent; /* ← Full transparency */
+
+  z-index: 9999;
+}
+
+/* Remove sticky behavior from header */
+header,
+.site-header {
+  position: relative !important;
+  top: auto !important;
+}
+
+/* Logo styling */
+.site-header .logo img {
+  width: 165px;
+  margin-top: 150px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
+}
+
+/* Remove extra padding */
+body {
+  padding-top: 0 !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('Error_Roleplay_Red_Banner.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: var(--sans);
+  color: white;
+}
+
+/* Κεντρικό Container */
+.vip-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.vip-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 25px;
+  width: 300px;
+
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vip-box h2 {
+  height: 50px;       /* 👉 Ρυθμίζει το ύψος του τίτλου */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.vip-perks {
+  min-height: 780px;   /* 👉 Ρύθμισε το μέχρι να ευθυγραμμιστούν ΤΕΛΕΙΑ */
+  text-align: left;
+  margin-bottom: 25px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); 
+}
+
+.vip-perks li {
+  position: relative;
+  padding-left: 40px; /* Απόσταση για το gif */
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.vip-perks li::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url("vip-diamond.gif"); /* Βάλε εδώ το σωστό path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: drop-shadow(0 0 6px rgba(255,0,0,0.7));
+}
+
+.vip-box h3 {
+  color: #ff2233;
+  font-size: 22px;
+  margin-bottom: 18px;
+  text-shadow: 0 0 8px rgba(255, 30, 30, 0.7);
+  letter-spacing: 1px;
+}
+
+.vip-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.vip-box ul li {
+  color: #fff;
+  opacity: 0.9;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.vip-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: #ff2233;
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 20, 20, 0.5);
+
+  transition: 0.25s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.vip-btn .btn-text {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  position: relative;
+}
+
+.vip-btn .discord-icon {
+  font-size: 26px;
+  opacity: 0;
+  transform: translateY(10px);
+  position: absolute;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.vip-btn:hover {
+  background: #ff4455;
+  box-shadow: 0 0 14px rgba(255, 20, 20, 0.8);
+}
+
+.vip-btn:hover .btn-text {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.vip-btn:hover .discord-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.socials {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 999;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.socials a:hover {
+  background: var(--red);
+  color: #000;
+}
+
+.credit-link {
+  color: #ff2233;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.credit-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff2233;
+}
+
+
+.subs-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 40px;
+
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); 
+  letter-spacing: 1px;
+}
+
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.intro-glitch {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: #ff2233;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: glitchAnim 1.0s linear forwards;
+}
+
+.intro-glitch::before,
+.intro-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.intro-glitch::before {
+  left: 2px;
+  text-shadow: -4px 0 #ff004c;
+  clip-path: polygon(0 0,100% 0,100% 45%,0 50%);
+  animation: glitchTop 0.1s infinite linear alternate-reverse;
+}
+
+.intro-glitch::after {
+  left: -2px;
+  text-shadow: 4px 0 #00fff6;
+  clip-path: polygon(0 55%,100% 50%,100% 100%,0 100%);
+  animation: glitchBottom 0.1s infinite linear alternate-reverse;
+}
+
+/* Aggressive Glitch Animations */
+@keyframes glitchTop {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  10% { transform: translate(-10px,-4px) rotate(-1deg); opacity:0.8; }
+  20% { transform: translate(12px,6px) rotate(1deg); opacity:1; }
+  30% { transform: translate(-8px,8px) rotate(-1deg); opacity:0.9; }
+  40% { transform: translate(6px,-6px) rotate(1deg); opacity:1; }
+  50% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(0,0) rotate(0deg); opacity:1; }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  10% { transform: translate(8px,4px) rotate(1deg); opacity:0.8; }
+  20% { transform: translate(-12px,-6px) rotate(-1deg); opacity:1; }
+  30% { transform: translate(6px,6px) rotate(1deg); opacity:0.9; }
+  40% { transform: translate(-6px,-6px) rotate(-1deg); opacity:1; }
+  50% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(0,0) rotate(0deg); opacity:1; }
+}
+
+/* Main Glitch + Zoom Animation */
+@keyframes glitchAnim {
+  0% { opacity: 0; transform: scale(0.9); }
+  10% { opacity: 1; transform: scale(1); }
+  30% { transform: scale(1.05) skew(2deg,2deg); }
+  50% { transform: scale(0.95) skew(-2deg,-2deg); }
+  70% { transform: scale(1.03) skew(1deg,-1deg); }
+  90% { transform: scale(0.9) skew(0deg,0deg); }
+  100% { opacity: 1; transform: scale(2) skew(0deg,0deg); } /* Zoom out before reveal */
+}
+
+body.loading .logo {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.vip-title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #ff1e2d;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* απόσταση μεταξύ diamond – VIP – diamond */
+}
+
+.vip-icon {
+  width: 32px;      /* μέγεθος */
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,0,0,0.7));
+}
