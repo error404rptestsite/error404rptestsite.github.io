@@ -57,8 +57,7 @@
       </div>
     </div>
     <nav>
-      <a href="#features">Χαρακτηριστικά</a>
-      <a href="#rules">Κανόνες</a>
+      <a href="vip-page.html">Subscriptions</a>
       <a href="#join" class="cta">Join</a>
     </nav>
   </header>
@@ -71,7 +70,7 @@
         Δημιούργησε τον χαρακτήρα σου, μπες να παίξεις, και γράψε τη δική σου ιστορία σε μια πόλη χωρίς όρια.
       </p>
       <div class="actions">
-        <a href="fivem://connect/cfx.re/join/r4kmyp" class="btn primary">Σύνδεση / Join Server</a>
+        <a href="#join" class="btn primary">Σύνδεση / Join Server</a>
         <a href="https://discord.gg/HMFEB2D4cx" target="_blank" class="btn ghost">Discord</a>
       </div>
 
@@ -296,7 +295,7 @@ window.addEventListener('load', () => {
   // Έλεγχος κωδικού
   ownerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const ok = ownerCode.value.trim().toLowerCase() === 'error404';
+    const ok = ownerCode.value.trim().toLowerCase() === 'devtest';
     if (ok) {
       formMsg.style.color = '#50fa7b';
       formMsg.textContent = 'Access granted';
@@ -311,10 +310,6 @@ window.addEventListener('load', () => {
   });
 });
 </script>
-
-
-<script src="counter.js"></script>
-
 
 
 
@@ -340,20 +335,8 @@ updatePlayerCount();
 setInterval(updatePlayerCount, 30000);
 </script>
 
-  
+
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
