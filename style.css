@@ -101,10 +101,27 @@ main {
 .hero {
   padding: 40px;
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background: rgba(0, 0, 0, 0.85);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6) !important;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.432); /* <-- Μαύρο layer */
+  backdrop-filter: blur(8px);     /* <-- Το blur */
+  z-index: 1;
+}
+
+.hero * {
+  position: relative;
+  z-index: 5;
 }
 
 .hero h1 {
@@ -233,13 +250,35 @@ main {
 
 /* Sidebar Cards */
 .card {
+  position: relative;
   padding: 20px;
   border-radius: 14px;
-  background: linear-gradient(180deg, var(--glass), var(--glass-2));
-  border: 1px solid rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-top: 20px;
+  overflow: hidden;
+  background: transparent !important;  /* Αφαιρεί πλήρως το gradient */
   box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-  margin-top: 40px;
 }
+
+/* Μαύρο blur layer */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.432);   /* Μαύρη απόχρωση */
+  backdrop-filter: blur(10px);   /* Το blur */
+  z-index: 1;
+}
+
+/* Περιεχόμενο πάνω από το overlay */
+.card * {
+  position: relative;
+  z-index: 5;
+}
+
 
 /* Status Grid */
 .status {
@@ -432,6 +471,7 @@ footer {
   margin-top: 25px;
   height: auto;
   filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
+
 }
 
 @keyframes logo-glow {
@@ -583,9 +623,5 @@ footer {
   75%{ transform:translateX(-3px) }
 }
 .owner-form.shake{ animation: shake .35s linear; }
-
-
-
-
 
 
