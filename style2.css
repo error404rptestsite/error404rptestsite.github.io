@@ -12,15 +12,16 @@
 
 /* ===== HEADER (transparent version) ===== */
 .site-header {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 22px;
   left: 0;
   width: 100%;
-  height: 90px;
+  height: 50px;
 
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 20px 45px;
 
   background: transparent; /* ← Full transparency */
 
@@ -81,7 +82,7 @@ body {
 }
 
 .vip-box h2 {
-  height: 50px;       /* 👉 Ρυθμίζει το ύψος του τίτλου */
+  height: 70px;       /* 👉 Ρυθμίζει το ύψος του τίτλου */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +93,7 @@ body {
   min-height: 780px;   /* 👉 Ρύθμισε το μέχρι να ευθυγραμμιστούν ΤΕΛΕΙΑ */
   text-align: left;
   margin-bottom: 25px;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); 
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); 
 }
 
 .vip-perks li {
@@ -106,7 +107,7 @@ body {
   content: "";
   width: 24px;
   height: 24px;
-  background-image: url("arrow.gif"); 
+  background-image: url("vip-diamond.gif"); /* Βάλε εδώ το σωστό path */
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -233,9 +234,9 @@ body {
   font-weight: 700;
   color: #ffffff;
   margin-top: 0px;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
 
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); 
+  text-shadow: 0 0 8px rgb(255, 255, 255); 
   letter-spacing: 1px;
 }
 
@@ -340,4 +341,41 @@ body.loading .logo {
   height: 32px;
   object-fit: contain;
   filter: drop-shadow(0 0 6px rgba(255,0,0,0.7));
+}
+
+.site-header nav {
+  display: flex;
+  gap: 40px;
+  margin-right: 75px;
+  margin-top: 150px;
+}
+
+.site-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+.site-header nav a:hover {
+  color: #ff2233;
+  text-shadow: 0 0 10px #ff2233;
+}
+
+/* CTA button */
+.site-header nav a.cta {
+  padding: 8px 16px;
+  background: var(--accent);
+  border-radius: 8px;
+  color: #000000;
+  font-weight: 700;
+  margin-top: -8px;
+}
+
+.site-header nav a.cta:hover {
+  background: #ff4444;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff4444;
 }
