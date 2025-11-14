@@ -651,6 +651,169 @@ footer {
   background-size: 20px;
 }
 
+/* ===============================
+   DESKTOP FIX — ΜΗΝ αλλάζει τίποτα
+   =============================== */
+@media (min-width: 981px) {
+
+  /* Εμφανίζει το desktop nav κανονικά */
+  .site-header nav {
+    display: flex !important;
+  }
+
+  /* Κρύβει το mobile menu */
+  .menu-toggle,
+  .dropdown-menu {
+    display: none !important;
+  }
+}
+
+
+/* =======================================================
+   📱 MOBILE OPTIMIZATION
+   ======================================================= */
+@media (max-width: 980px) {
+
+  /* ===== HEADER / NAVIGATION ===== */
+  nav {
+    display: none; /* κρυφό στο mobile */
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    z-index: 2000;
+  }
+
+  .menu-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    padding: 18px 22px;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    animation: fadeMenu 0.25s ease-out;
+  }
+
+  @keyframes fadeMenu {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .dropdown-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 0;
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .dropdown-menu a.cta {
+    background: var(--accent);
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: #000;
+    text-align: center;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 38px !important;
+    letter-spacing: 2px;
+  }
+
+  .hero p {
+    font-size: 15px !important;
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  main {
+    grid-template-columns: 1fr !important;
+    padding: 20px;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    margin-top: 20px;
+    padding: 18px;
+  }
+
+  .card h3 {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  /* ===== GRID BOXES (Χαρακτηριστικά) ===== */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ===== SERVER INFO ===== */
+  .server-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ip {
+    font-size: 16px;
+  }
+
+  .online {
+    font-size: 15px;
+  }
+
+  /* ===== ANNOUNCEMENTS ===== */
+  .announcements ul li::before {
+    left: -25px;
+  }
+
+  .announcements h3 {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  /* ===== SOCIALS ===== */
+  .socials {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .socials a {
+    height: 38px;
+    width: 38px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+}
 
 
 
