@@ -61,6 +61,20 @@
       <a href="/vip">Subscriptions</a>
       <a href="fivem://connect/cfx.re/join/r4kmyp" class="cta">Join</a>
     </nav>
+
+    <!-- Mobile menu button -->
+<div class="menu-toggle">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<!-- Mobile dropdown -->
+<nav class="dropdown-menu">
+  <a href="/update">Updates</a>
+  <a href="/vip">Subscriptions</a>
+  <a href="#join" class="cta">Join</a>
+</nav>
   </header>
 
   <main>
@@ -336,10 +350,25 @@ setInterval(updatePlayerCount, 30000);
 </script>
 
 
+<script>
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".dropdown-menu");
+
+  toggleBtn.addEventListener("click", () => {
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !toggleBtn.contains(e.target)) {
+      menu.style.display = "none";
+    }
+  });
+</script>
 
 
 </body>
 </html>
+
 
 
 
