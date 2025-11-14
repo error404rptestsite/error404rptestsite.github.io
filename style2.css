@@ -55,6 +55,7 @@ body {
   background-size: cover;
   font-family: var(--sans);
   color: white;
+  overflow: auto;
 }
 
 /* Κεντρικό Container */
@@ -379,5 +380,6 @@ body.loading .logo {
   transform: scale(1.05);
   box-shadow: 0 0 10px #ff4444;
 }
+
 
 
