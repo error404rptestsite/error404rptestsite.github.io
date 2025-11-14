@@ -366,40 +366,9 @@ setInterval(updatePlayerCount, 30000);
 </script>
 
 
-  <!-- Mobile Join Popup -->
-<div id="mobileJoinPopup" class="mobile-popup">
-  <div class="mobile-popup-content">
-    <h3>📵 Δεν μπορείς να παίξεις από κινητό</h3>
-    <p>Για να συνδεθείς στο Error404 Roleplay πρέπει να ανοίξεις τον server από υπολογιστή.</p>
-    <button id="closeMobilePopup">OK</button>
-  </div>
-</div>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const joinBtn = document.querySelector('a.cta, a[href="#join"]'); 
-  const popup = document.getElementById("mobileJoinPopup");
-  const closeBtn = document.getElementById("closeMobilePopup");
-
-  if (!joinBtn) return;
-
-  joinBtn.addEventListener("click", (e) => {
-    if (window.innerWidth <= 900) { 
-      e.preventDefault();
-      popup.classList.add("show");
-    }
-  });
-
-  closeBtn.addEventListener("click", () => {
-    popup.classList.remove("show");
-  });
-});
-</script>
-
-
 </body>
 </html>
+
 
 
 
