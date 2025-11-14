@@ -107,7 +107,7 @@ body {
   content: "";
   width: 24px;
   height: 24px;
-  background-image: url("vip-diamond.gif"); /* Βάλε εδώ το σωστό path */
+  background-image: url("arrow.gif"); /* Βάλε εδώ το σωστό path */
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -379,4 +379,5 @@ body.loading .logo {
   transform: scale(1.05);
   box-shadow: 0 0 10px #ff4444;
 }
+
 
