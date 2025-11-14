@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error404 Roleplay — Updates</title>
+  <link rel="stylesheet" href="style3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="loading">
+
+
+    <div class="intro-overlay">
+  <div class="intro-glitch" data-text="ERROR 404">ERROR 404</div>
+</div>
+
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="/" class="logo">
+    <img src="error_404_red_transparent.png" alt="Error404 RP">
+  </a>
+  <div>
+  <nav>
+      <a href="#updates">Updates</a>
+      <a href="/vip">Subscriptions</a>
+      <a href="#join" class="cta">Join</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO TITLE -->
+<section class="updates-hero">
+  <h1>Server Updates</h1>
+  <p>Όλες οι τελευταίες αλλαγές, διορθώσεις και προσθήκες στον server.</p>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="updates-container">
+
+  <!-- UPDATE BLOCK -->
+  <div class="update-card">
+    <div class="update-header">
+      <h2>Update v1.4 — Economy Rework</h2>
+      <span class="date">27/10/2025</span>
+    </div>
+
+    <ul>
+      <li>Βελτιώθηκε το σύστημα Economy +10% μισθοί</li>
+      <li>Νέες τιμές σε Car Dealer</li>
+      <li>Σταθερότητα server βελτιώθηκε</li>
+      <li>Διορθώθηκαν bugs στα Public Garage</li>
+    </ul>
+  </div>
+
+  <!-- UPDATE BLOCK -->
+  <div class="update-card">
+    <div class="update-header">
+      <h2>New Police Features</h2>
+      <span class="date">22/10/2025</span>
+    </div>
+
+    <ul>
+      <li>Προστέθηκαν νέα patrol routes</li>
+      <li>Νέο MDT Interface</li>
+      <li>Αναβαθμισμένα Police Vehicles</li>
+    </ul>
+  </div>
+
+  <!-- UPDATE BLOCK -->
+  <div class="update-card">
+    <div class="update-header">
+      <h2>Event System Overhaul</h2>
+      <span class="date">18/10/2025</span>
+    </div>
+
+    <ul>
+      <li>Nέα PvP Arenas</li>
+      <li>Gungame βελτιώσεις</li>
+      <li>Reward system αναβάθμιση</li>
+    </ul>
+  </div>
+
+</section>
+
+
+<script>
+    // Όταν φορτώσει η σελίδα, μετά από 2.5 δευτερόλεπτα αφαιρείται το overlay
+    window.addEventListener('load', () => {
+      const overlay = document.querySelector('.intro-overlay');
+      setTimeout(() => {
+        overlay.style.transition = 'opacity 0.8s ease';
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 800);
+      }, 1500);
+    });
+  </script>
+
+  <script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.body.classList.remove("loading");
+    }, 1600); // ίδιο timing με το glitch animation σου
+  });
+</script>
+
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div>© <strong>Error 404 Roleplay</strong> — Made with ❤️ by  <a href="https://codingelevation.com" target="_blank" rel="noopener noreferrer" class="credit-link"> Coding Elevation.</a>
+  </div>
+
+  <div class="socials">
+    <a href="https://discord.gg/error404roleplay" target="_blank"><i class="fab fa-discord"></i></a>
+    <a href="https://www.tiktok.com/@error404roleplay" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+
+</body>
+</html>
