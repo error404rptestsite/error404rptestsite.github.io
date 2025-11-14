@@ -382,6 +382,49 @@ body.loading .logo {
 }
 
 /* =========================================================
+   HIDE LOGO + NAVIGATION (Desktop + Mobile)
+   ========================================================= */
+
+.site-header .logo,
+.site-header nav {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  pointer-events: none !important;
+}
+
+
+/* =========================================================
+   SUBSCRIPTIONS TITLE OPTIMIZED
+   ========================================================= */
+
+.subs-title {
+  text-align: center;
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.9);
+}
+
+
+/* =========================================================
+   DESKTOP VIP FIX (keeps boxes aligned and clean)
+   ========================================================= */
+
+@media (min-width: 901px) {
+  .vip-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+
+/* =========================================================
    MOBILE OPTIMIZATION — FULL PAGE
    ========================================================= */
 
@@ -449,5 +492,7 @@ body.loading .logo {
   }
 
 }
+
+
 
 
