@@ -22,6 +22,7 @@ html, body {
   background: url('Error_Roleplay_Red_Banner.png') no-repeat center center fixed;
   background-size: cover; /* γεμίζει όλη την οθόνη */
   color: #eaeaea;
+  overflow: auto;
 }
 
 /* Scanline overlay */
@@ -649,6 +650,7 @@ footer {
   background: url('arrow.gif') no-repeat center center;
   background-size: 20px;
 }
+
 
 
 
