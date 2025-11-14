@@ -350,6 +350,10 @@ body.loading .logo {
         top: 10px;
     }
 
+    .site-header .logo img {
+        display: none !important;
+    }
+
 
     /* Navigation */
     .site-header nav {
@@ -444,5 +448,6 @@ body.loading .logo {
         font-size: 42px;
     }
 }
+
 
 
