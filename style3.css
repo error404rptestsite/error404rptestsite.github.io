@@ -1,0 +1,325 @@
+:root {
+    --accent: linear-gradient(90deg, var(--red), #ff4d4d);
+}
+
+
+
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('Error_Roleplay_Red_Banner.png') center/cover fixed no-repeat;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  width: 100%;
+  position: absolute; /* ίδιο με το 1ο page */
+  top: 0;
+  left: 0;
+  padding: 20px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 1000;
+  background: transparent;
+}
+
+/* Logo */
+.site-header .logo img {
+  width: 160px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
+}
+
+/* ===== HERO TITLE ===== */
+.updates-hero {
+  text-align: center;
+  padding-top: 180px;
+  padding-bottom: 40px;
+}
+
+.updates-hero h1 {
+  font-size: 40px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px #ffffff;
+  margin-top: -95px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.updates-hero p {
+  color: #ffffff;
+  text-shadow: 0 0 20px #ffffff;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+/* ===== UPDATES LIST ===== */
+.updates-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 80px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Glass Black Panels */
+.update-card {
+  position: relative;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Overlay */
+.update-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+.update-card * {
+  position: relative;
+  z-index: 5;
+}
+
+/* Header Line */
+.update-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.918); 
+}
+
+.update-header h2 {
+  position: relative;
+  padding-left: 40px; /* χώρος για το gif */
+  font-size: 26px;
+  margin: 0;
+}
+
+/* GIF icon πριν από το title */
+.update-header h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 28px;    
+  height: 28px;
+
+  background: url('update.gif') no-repeat center center;
+  background-size: contain;
+}
+
+
+.update-header .date {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* List */
+.update-card ul {
+  padding-left: 0;      /* αφαιρεί τα default bullets */
+  list-style: none;
+}
+
+.update-card ul li {
+  position: relative;
+  padding-left: 32px;   /* χώρος για το gif */
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* GIF bullet */
+.update-card ul li::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+
+  background: url('arrow.gif') no-repeat center center;
+  background-size: contain;
+}
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+  width: 100%;
+  padding: 25px 40px;
+  margin-bottom: 0px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0px;
+}
+
+.site-footer .credit-link {
+  color: #ff2233;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.credit-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff2233;
+}
+
+.socials {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 999;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.socials a:hover {
+  background: var(--red);
+  color: #000;
+}
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.intro-glitch {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 72px;
+  font-weight: 900;
+  color: #ff2233;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: glitchAnim 1.0s linear forwards;
+}
+
+.intro-glitch::before,
+.intro-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.intro-glitch::before {
+  left: 2px;
+  text-shadow: -4px 0 #ff004c;
+  clip-path: polygon(0 0,100% 0,100% 45%,0 50%);
+  animation: glitchTop 0.1s infinite linear alternate-reverse;
+}
+
+.intro-glitch::after {
+  left: -2px;
+  text-shadow: 4px 0 #00fff6;
+  clip-path: polygon(0 55%,100% 50%,100% 100%,0 100%);
+  animation: glitchBottom 0.1s infinite linear alternate-reverse;
+}
+
+/* Aggressive Glitch Animations */
+@keyframes glitchTop {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  10% { transform: translate(-10px,-4px) rotate(-1deg); opacity:0.8; }
+  20% { transform: translate(12px,6px) rotate(1deg); opacity:1; }
+  30% { transform: translate(-8px,8px) rotate(-1deg); opacity:0.9; }
+  40% { transform: translate(6px,-6px) rotate(1deg); opacity:1; }
+  50% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(0,0) rotate(0deg); opacity:1; }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  10% { transform: translate(8px,4px) rotate(1deg); opacity:0.8; }
+  20% { transform: translate(-12px,-6px) rotate(-1deg); opacity:1; }
+  30% { transform: translate(6px,6px) rotate(1deg); opacity:0.9; }
+  40% { transform: translate(-6px,-6px) rotate(-1deg); opacity:1; }
+  50% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(0,0) rotate(0deg); opacity:1; }
+}
+
+/* Main Glitch + Zoom Animation */
+@keyframes glitchAnim {
+  0% { opacity: 0; transform: scale(0.9); }
+  10% { opacity: 1; transform: scale(1); }
+  30% { transform: scale(1.05) skew(2deg,2deg); }
+  50% { transform: scale(0.95) skew(-2deg,-2deg); }
+  70% { transform: scale(1.03) skew(1deg,-1deg); }
+  90% { transform: scale(0.9) skew(0deg,0deg); }
+  100% { opacity: 1; transform: scale(2) skew(0deg,0deg); } /* Zoom out before reveal */
+}
+
+body.loading .logo {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Navigation */
+.site-header nav {
+  display: flex;
+  gap: 25px;
+}
+
+.site-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+.site-header nav a:hover {
+  color: #ff2233;
+  text-shadow: 0 0 10px #ff2233;
+}
+
+/* CTA button */
+.site-header nav a.cta {
+  padding: 8px 16px;
+  background: #ff2233;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 700;
+}
+
+.site-header nav a.cta:hover {
+  background: #ff4444;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff4444;
+}
