@@ -12,6 +12,7 @@ body {
   background: url('Error_Roleplay_Red_Banner.png') center/cover fixed no-repeat;
   font-family: 'Inter', sans-serif;
   color: #fff;
+  overflow: auto;
 }
 
 /* ===== HEADER ===== */
@@ -327,3 +328,4 @@ body.loading .logo {
   transform: scale(1.05);
   box-shadow: 0 0 10px #ff4444;
 }
+
